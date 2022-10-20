@@ -38,7 +38,7 @@ mm_workload = CustomWorkload(
     function="set_se_binary_workload",
     parameters={
         "binary": CustomResource("workload/mm-gem5"),
-        "arguments": ["256"]
+        "arguments": ["64"]
         # Note: 64 takes ~10s, 128 takes ~30s, and 256 takes ~4 min
     },
 )
