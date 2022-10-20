@@ -48,9 +48,6 @@ from gem5.components.boards.simple_board import SimpleBoard
 from gem5.components.cachehierarchies.classic.private_l1_private_l2_cache_hierarchy import (
     PrivateL1PrivateL2CacheHierarchy,
 )
-from gem5.components.cachehierarchies.ruby.mesi_two_level_cache_hierarchy import (
-    MESITwoLevelCacheHierarchy
-)
 
 from gem5.components.memory.single_channel import SingleChannelDDR4_2400
 
@@ -63,9 +60,7 @@ class SimpleX86Board(SimpleBoard):
         clock_frequency="3GHz",
         l1_size="32KiB",
         l2_size="256KiB",
-        processor=SimpleProcessor(
-            cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=1
-        ),
+        processor=SimpleProcessor(cpu_type=CPUTypes.TIMING, isa=ISA.X86, num_cores=1),
     ):
         memory = SingleChannelDDR4_2400()
 
@@ -73,17 +68,7 @@ class SimpleX86Board(SimpleBoard):
             l1d_size=l1_size,
             l1i_size=l1_size,
             l2_size=l2_size,
-        )        
-        # cache_hierarchy = MESITwoLevelCacheHierarchy(
-        #     l1d_size=l1_size,
-        #     l1d_assoc=8,
-        #     l1i_size=l1_size,
-        #     l1i_assoc=8,
-        #     l2_size=l2_size,
-        #     l2_assoc=16,
-        #     num_l2_banks=1,
-        # )
-
+        )
 
         super().__init__(
             clk_freq=clock_frequency,

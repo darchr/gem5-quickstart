@@ -39,12 +39,14 @@ from gem5.components.processors.cpu_types import CPUTypes
 
 from m5.objects import X86O3CPU
 
+
 class OutOfOrderCore(BaseCPUCore):
     """
     An out of order core for X86.
     The LSQ depth (split equally between loads and stores), the width of the
     core, and the number of entries in the reorder buffer are configurable.
     """
+
     def __init__(self, core_id, lsq_depth, width, rob_entries):
         super().__init__(core=X86O3CPU(cpu_id=core_id), isa=ISA.X86)
         self.core.fetchWidth = width

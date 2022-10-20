@@ -124,9 +124,7 @@ def print_stats_simple(stats):
             "numInsts"
         ]["value"]
     )
-    cycles = int(
-        stats["board"]["processor"]["cores"]["core"]["numCycles"]["value"]
-    )
+    cycles = int(stats["board"]["processor"]["cores"]["core"]["numCycles"]["value"])
     ticks = int(
         stats["simulated_end_time"] - stats["simulated_begin_time"]
     )  # In 10^-12s (ps)
@@ -138,16 +136,12 @@ def print_stats_simple(stats):
 
 def print_stats_ooo(stats):
     instructions = int(
-        stats["board"]["processor"]["cores"]["core"]["committedInsts"]["0"][
-            "value"
-        ]
+        stats["board"]["processor"]["cores"]["core"]["committedInsts"]["0"]["value"]
     )
     executed_instructions = int(
         stats["board"]["processor"]["cores"]["core"]["numInsts"]["value"]
     )
-    cycles = int(
-        stats["board"]["processor"]["cores"]["core"]["numCycles"]["value"]
-    )
+    cycles = int(stats["board"]["processor"]["cores"]["core"]["numCycles"]["value"])
     ticks = int(
         stats["simulated_end_time"] - stats["simulated_begin_time"]
     )  # In 10^-12s (ps)
